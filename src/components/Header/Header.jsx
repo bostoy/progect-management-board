@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
-  background-color: blue;
+  background-color: #8BCACA;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #015a6c;
 `;
 
 const Title = styled.h1`
@@ -18,9 +18,9 @@ const Title = styled.h1`
 `;
 
 const Header = () => (
-    <HeaderWrapper>
-        <Title>Project Management Board</Title>
-    </HeaderWrapper>
+  <HeaderWrapper>
+    <Title>Project Management Board</Title>
+  </HeaderWrapper>
 );
 
 export default Header;

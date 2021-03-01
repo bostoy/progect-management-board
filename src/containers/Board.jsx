@@ -20,21 +20,22 @@ export default function Board() {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        (async function fetchData() {
+        async function fetchData() {
             try {
-                const tickets = await fetch(`../../assets/data,json`)
+                const tickets = await fetch(`../../assets/data.json`)
                 const ticketsJSON = await tickets.json()
                 if (ticketsJSON) {
-                    console.log(ticketsJSON)
                     setData(ticketsJSON)
                     setLoading(false)
                 }
             } catch (error) {
-                console.log('Error', error)
                 setLoading(false)
                 setError(error.message)
             }
-        })()
+            return
+        }
+
+        fetchData()
 
     }, [])
 
@@ -44,6 +45,9 @@ export default function Board() {
         { id: 3, title: 'Review' },
         { id: 4, title: 'Done' }
     ]
+    console.log('Data: ', data)
+    console.log('isLoading: ', isLoading)
+    console.log('error: ', error)
 
 
     return (
