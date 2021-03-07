@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 export default function withDataFetching(WrappedComponent) {
 
-    return class extends Component {
+    return class WithDataFetching extends Component {
         constructor(props) {
             super(props)
             this.state = {
@@ -42,6 +42,5 @@ export default function withDataFetching(WrappedComponent) {
                 {...this.props}
             />)
         }
-
     }
 }

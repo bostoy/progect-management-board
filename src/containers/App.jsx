@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import Board from './Board'
 import Header from '../components/Header/Header'
+import Board from './Board'
+import Tickets from './Tickets'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,7 +34,8 @@ export default function App() {
       <GlobalStyle />
       <AppWrapper>
         <Header />
-        <Board lanes={lanes} />
+        <Board lanes={lanes} dataSource={'../../assets/data.json'} />
+        <Tickets dataSource={'../../assets/data.json'} />
       </AppWrapper>
     </Fragment>
   );
