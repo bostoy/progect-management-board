@@ -21,12 +21,19 @@ const AppWrapper = styled.div`
   text-align: center;
 `;
 export default function App() {
+
+  const lanes = [
+    { id: 1, title: 'To-Do' },
+    { id: 2, title: 'In Progress' },
+    { id: 3, title: 'Review' },
+    { id: 4, title: 'Done' }
+  ]
   return (
     <Fragment>
       <GlobalStyle />
       <AppWrapper>
         <Header />
-        <Board />
+        <Board lanes={lanes} />
       </AppWrapper>
     </Fragment>
   );
