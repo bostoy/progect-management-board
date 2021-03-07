@@ -28,18 +28,32 @@ color:#015a6c;
 const TicketsWrapper = styled.div`
 padding: 5%;
 `
+const Alert = styled.div`
+text-align: center;
+`
 
-
-export default function Lane({ tickets, loading, error, title }) {
-
-  return <LaneWrapper>
+const Lane = ({
+  laneId,
+  tickets,
+  isLoading,
+  error,
+  onDragStart,
+  onDragOver,
+  onDrop,
+  title,
+}) => (
+  <LaneWrapper
+    onDragOver={e => onDragOver(e)}
+    onDrop={e => onDrop(e, laneId)}
+  >
     <Title>{title}</Title>
+    {(isLoading || error) && <Alert>{isLoading ? 'Loading...' : error}</Alert>}
     <TicketsWrapper>
-      {tickets.map(ticket =>
-        <Ticket
-          key={ticket.id}
-          ticket={ticket} />)
-      }
+      {tickets.map(ticket => (
+        <Ticket key={ticket.id} onDragStart={onDragStart} ticket={ticket} />
+      ))}
     </TicketsWrapper>
   </LaneWrapper>
-}
+);
+
+export default Lane;
