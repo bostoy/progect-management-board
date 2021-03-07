@@ -16,12 +16,14 @@ const Alert = styled.div`
 text-align: center;
 `
 
-const Tickets = ({ isLoading, data, error }) => {
-    return (
-        <TicketsWrapper>
-            {(isLoading || error) && <Alert>{isLoading ? 'Loading...' : error}</Alert>}
-            {data.map(ticket => <Ticket key={ticket.id} ticket={ticket} />)}
-        </TicketsWrapper>)
-}
+
+const Tickets = ({ isLoading, error, data }) => (
+    <TicketsWrapper>
+        {(isLoading || error) && <Alert>{isLoading ? 'Loading...' : error}</Alert>}
+        {data.map(ticket => (
+            <Ticket key={ticket.id} marginRight ticket={ticket} />
+        ))}
+    </TicketsWrapper>
+)
 
 export default withDataFetching(Tickets)

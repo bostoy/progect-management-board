@@ -23,11 +23,15 @@ const Body = styled.p`
   color:  #015a6c;
 `;
 
-export default function Ticket({ ticket }) {
-    return (
-        <TicketWrapper>
-            <Title>{ticket.title}</Title>
-            <Body>{ticket.body}</Body>
-        </TicketWrapper>
-    )
+export default function Ticket({ marginRight, onDragStart, ticket }) {
+  return (
+    <TicketWrapper
+      draggable
+      onDragStart={e => onDragStart(e, ticket.id)}
+      marginRight={marginRight}
+    >
+      <Title>{ticket.title}</Title>
+      <Body>{ticket.body}</Body>
+    </TicketWrapper>
+  )
 }
